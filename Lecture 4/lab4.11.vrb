@@ -1,0 +1,20 @@
+\frametitle{Code Lab Task 2}
+\lstset{style=mystyle}
+        \begin{lstlisting}
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+    long p1 = 2425785, p2 = 47, p3 = 9761;
+
+    cout << setfill('.') << setw(8) << "LOCATION" << setw(18) << "POPULATION" << endl
+		<< setw(8) << "Portcity" << setw(18) << p1 << endl
+		<< setw(8) << "Hightown" << setw(18) << p2 << endl
+		<< setw(8) << "Lowville" << setw(18) << p3 << endl;
+    return 0;
+}\end{lstlisting}
+\hyperlink{lt2}{\beamerbutton{return}}
+
+

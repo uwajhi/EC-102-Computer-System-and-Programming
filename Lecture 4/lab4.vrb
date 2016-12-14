@@ -1,0 +1,18 @@
+\frametitle{Example}
+\subsubsection{Example}
+\lstset{style=mystyle}
+        \begin{lstlisting}
+// takes a single character (a letter) as an argument and returns a non-zero integer if the letter is lowercase, or zero if it is uppercase
+#include <iostream>
+#include <ctype.h>
+using namespace std;
+
+int main()
+{
+    char letter;
+    cin >> letter;
+    cout << islower(letter) << endl;
+    return 0;
+}
+\end{lstlisting}
+

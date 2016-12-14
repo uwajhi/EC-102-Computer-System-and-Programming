@@ -1,0 +1,16 @@
+\frametitle{Code Lab Task 1}
+	\lstset{style=mystyle}
+        \begin{lstlisting}
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	float gallons, cubic_feet;
+	cout<<"enter number of gallons to convert into cubic-feet: ";
+	cin >> gallons;
+	cout << gallons * 0.133681 << " cubic-feet" << endl;
+	system("pause");
+	return 0;
+}\end{lstlisting}
+\hyperlink{main}{\beamerbutton{return}}

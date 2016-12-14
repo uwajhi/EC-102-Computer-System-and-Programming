@@ -1,0 +1,8 @@
+\beamer@endinputifotherversion {3.36pt}
+\beamer@sectionintoc {1}{Lab Task 1}{3}{0}{1}
+\beamer@sectionintoc {2}{Header Files}{4}{0}{2}
+\beamer@subsectionintoc {2}{1}{iomanip.h}{5}{0}{2}
+\beamer@subsubsectionintoc {2}{1}{1}{Lab Task 2}{6}{0}{2}
+\beamer@subsectionintoc {2}{2}{ctype.h}{7}{0}{2}
+\beamer@subsubsectionintoc {2}{2}{1}{ctype.h functions}{8}{0}{2}
+\beamer@subsubsectionintoc {2}{2}{2}{Example}{9}{0}{2}

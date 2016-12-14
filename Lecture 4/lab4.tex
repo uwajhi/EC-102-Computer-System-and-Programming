@@ -1,0 +1,214 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{fancyvrb}
+\usepackage{xcolor}
+
+\usetheme{Antibes}
+\usecolortheme{whale}
+\usepackage{lmodern}
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\mode<presentation>
+
+\definecolor{orange}{HTML}{BC2E07}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor=orange,
+    urlcolor=blue
+}
+
+\lstdefinestyle{mystyle}{
+    language=C++,
+    basicstyle=\ttfamily\footnotesize,
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\title{Lab \# 4: Programming Practice and Using Header Files}
+\subtitle{EC-102 -- Computer Systems and Programming}
+
+\author{Usama Wajhi}
+\institute{School of Mechanical and Manufacturing Engineering (SMME), \\ National University of Sciences and Technology (NUST)}
+\date{\today}
+
+\begin{document}
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+        \tableofcontents
+\end{frame}
+
+\begin{frame}[label=main]
+	\frametitle{Lab Task 1}
+	\section{Lab Task 1}
+		\begin{large}
+			{Write a program which asks the user to enter the number of gallons and displays the equivalent in cubic feet.\\(1 cubic-feet = 7.48 gallons)}
+		\end{large}\\
+		\hyperlink{supplemental}{\beamerbutton{code}}
+\end{frame}
+
+\begin{frame}[label=main]
+	\section{Header Files}
+	\frametitle{Header Files}
+	\begin{itemize}
+		\item \hyperlink{iomanip.h}{iomanip.h}\\
+		\item \hyperlink{ctype.h}{ctype.h}\\
+		%\item \hyperlink{math.h}{math.h}\\
+	\end{itemize}
+		
+\end{frame}
+
+\begin{frame}[label=iomanip.h]
+	\frametitle{iomanip.h}
+	\subsection{iomanip.h}
+	The iomanip is a parameterized input output manipulator.
+	\begin{itemize}
+	\item setprecision(int n) – It sets the precision of floating point number to n digits.
+		\item setw(int n) – It sets the width of the field of the next output to n characters. If the length of the output stream is less than n then spaces are padded. The no of spaces padded is the difference between n and length of the output stream. If the length of the output stream is less than n there will be no effect on output stream.
+ 	\item setbase(int n) – It sets the output representation of the number to octal, decimal or hexadecimal corresponding to the argument n which is 8 in case of octal, 10 for decimal and 16 for hexadecimal.
+	\item setfill ( char c) – It sets the fill character to be the value of character c.
+	
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[label=lt2]
+	\frametitle{Lab Task 2}
+	\subsubsection{Lab Task 2}
+	Write a code which gives you the following output.\\
+	Hint: use setw and setfill.
+	\begin{figure}
+            \centering
+            \includegraphics[scale=0.7]{Task2}
+    \end{figure}
+    \hyperlink{ltcode}{\beamerbutton{code}}
+\end{frame}
+
+
+\begin{frame}[label=ctype.h]
+	\frametitle{ctype.h}
+	\subsection{ctype.h}
+	\begin{itemize}
+		\item The ctype.h header file of the C Standard Library declares several functions that are useful for testing and mapping characters.
+
+		\item These functions take the int equivalent of one character as parameter and the functions return non-zero (true) if the argument c satisfies the condition described, and zero(false) if not.
+	\end{itemize}
+\end{frame}
+\begin{frame}{ctype.h functions}
+\subsubsection{ctype.h functions}
+
+\begin{itemize}
+
+\item isalnum:
+Check if character is alphanumeric
+\item isalpha: \ 
+Check if character is alphabetic
+\item islower: \ \ 
+Check if character is lowercase letter
+\item isspace: \ \ 
+Check if character is a white-space 
+\item isupper: \ \ 
+Check if character is uppercase letter
+\item isxdigit: \ \ 
+Check if character is hexadecimal digit 
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Example}
+\subsubsection{Example}
+\lstset{style=mystyle}
+        \begin{lstlisting}
+// takes a single character (a letter) as an argument and returns a non-zero integer if the letter is lowercase, or zero if it is uppercase
+#include <iostream>
+#include <ctype.h>
+using namespace std;
+
+int main()
+{
+    char letter;
+    cin >> letter;
+    cout << islower(letter) << endl;
+    return 0;
+}
+\end{lstlisting}
+
+\end{frame}
+
+%\begin{frame}[label=math.h]
+%	\frametitle{math.h}
+%	\subsection{math.h}
+%	
+%	
+%	
+%	
+%\end{frame}
+
+\begin{frame}[fragile, label=supplemental]
+	\frametitle{Code Lab Task 1}
+	\lstset{style=mystyle}
+        \begin{lstlisting}
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	float gallons, cubic_feet;
+	cout<<"enter number of gallons to convert into cubic-feet: ";
+	cin >> gallons;
+	cout << gallons * 0.133681 << " cubic-feet" << endl;
+	system("pause");
+	return 0;
+}\end{lstlisting}
+\hyperlink{main}{\beamerbutton{return}}
+\end{frame}
+
+\begin{frame}[label=ltcode, fragile]{Code Lab Task 2}
+\lstset{style=mystyle}
+        \begin{lstlisting}
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+    long p1 = 2425785, p2 = 47, p3 = 9761;
+    
+    cout << setfill('.') << setw(8) << "LOCATION" << setw(18) << "POPULATION" << endl 
+		<< setw(8) << "Portcity" << setw(18) << p1 << endl 
+		<< setw(8) << "Hightown" << setw(18) << p2 << endl 
+		<< setw(8) << "Lowville" << setw(18) << p3 << endl;
+    return 0;
+}\end{lstlisting}
+\hyperlink{lt2}{\beamerbutton{return}}
+
+	
+\end{frame}
+
+\end{document}
