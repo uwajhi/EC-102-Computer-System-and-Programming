@@ -1,0 +1,368 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{fancyvrb}
+\usepackage{xcolor}
+
+\usetheme{Antibes}
+\usecolortheme{whale}
+\usepackage{lmodern}
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\mode<presentation>
+
+\definecolor{orange}{HTML}{BC2E07}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor=orange,
+    urlcolor=blue
+}
+
+\lstdefinestyle{mystyle}{
+    language=C++,
+    basicstyle=\ttfamily\footnotesize,
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\title{Lab \# 8: Loops}
+\subtitle{EC-102 -- Computer Systems and Programming}
+
+\author{Usama Wajhi}
+\institute{School of Mechanical and Manufacturing Engineering (SMME), \\ National University of Sciences and Technology (NUST)}
+\date{\today}
+
+\begin{document}
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+    \frametitle{Outline}
+        \tableofcontents
+\end{frame}
+
+\begin{frame}
+    \frametitle{Introduction to Loops}
+    \section{Introduction to Loops} % (fold)
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Cause a section of your program to be repeated a certain number of times
+            \item The repetition continues while a condition is true
+            \item As soon as the condition becomes false, the loop ends and passes the control to the statements following the loop
+        \end{itemize}
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[scale=0.55]{trap}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Loops in C++}
+    \subsection{Loops in C++} % (fold)
+    There are three types of loops in C++:
+    \begin{itemize}
+        \item the \texttt{for} loop,
+        \item the \texttt{while} loop, and
+        \item the \texttt{do} loop
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{The \texttt{for} Loop}
+    \section{The \texttt{for} loop} % (fold)
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Easiest to understand because all its loop control elements are gathered in one place
+            \item Executes a section of a code a fixed number of times
+        \end{itemize}
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[scale=0.4]{for}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{The \texttt{for} Loop -- Syntax}
+    \subsection{Syntax} % (fold)
+    \begin{columns}
+        \column{0.4\textwidth}
+        \lstset{style=mystyle}
+\begin{lstlisting}
+for(init; test; update)
+    {
+       statement;
+       statement;
+       statement;
+       statement;
+    }
+\end{lstlisting}
+        \column{0.57\textwidth}
+            \begin{itemize}
+            \item Keyword \texttt{for} followed by parantheses that contain three expressions separated by semicolons
+            \begin{enumerate}
+                \item the initialization expression,
+                \item the test expression, and
+                \item the update expression
+            \end{enumerate}
+            \item These three expressions usually involve the same variable, also known as the loop variable
+            \item The body of the loop, delimited by the left and right braces, is the code to be executed each time through the loop
+            \end{itemize}
+    \end{columns}
+\end{frame}
+
+\begin{frame} [fragile]
+    \frametitle{The \texttt{for} Loop -- Solved Example 1}
+    \subsection{Solved Examples} % (fold)
+    \lstset{style=mystyle}
+    \begin{lstlisting}
+// demonstrates simple FOR loop
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+    int j;
+    for(j = 0; j < 15; j++)
+    {
+        cout << j * j << endl;
+    }
+    return 0;
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame} [fragile]
+    \frametitle{The \texttt{for} Loop -- Solved Example 2}
+    \lstset{style=mystyle}
+    \begin{lstlisting}
+// lists cubes from 1 to 10
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+    int num;
+
+    for(num = 1; num <= 10; num++)
+    {
+        cout << setw(4) << num;
+        int cube = num * num * num;
+        cout << setw(6) << cube << endl;
+    }
+    return 0;
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Variation in \texttt{for} Loop}
+    \subsection{Variation in \texttt{for} loop} % (fold)
+    \begin{itemize}
+        \item Initialization can also be performed before loop expression
+        \lstset{style=mystyle}
+\begin{lstlisting}
+int i = 1;
+for(; i <= 5; i++)
+\end{lstlisting}
+        \item Update expression can also be placed within a loop body
+        \lstset{style=mystyle}
+\begin{lstlisting}
+int i = 1;
+for(; i <= 5;)
+{
+    cout << "i = " << i << endl;
+    i++;
+}
+\end{lstlisting}
+        \item If test expression is omitted, then the loop will run forever
+        \lstset{style=mystyle}
+\begin{lstlisting}
+int i = 1;
+for(;; i++)
+{
+    cout << i << endl;
+}
+\end{lstlisting}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame} [fragile]
+    \frametitle{The \texttt{break} Statement}
+    \subsection{The \texttt{break} Statement} % (fold)
+    \begin{itemize}
+        \item Immediate exit from the loop
+        \item Program continues with first statement after the loop block
+        \item Used to escape early from a loop
+    \end{itemize}
+    \lstset{style=mystyle}
+\begin{lstlisting}
+for (x = 1; x <= 10; x++)
+    {
+        if (x == 5)
+            break;
+        cout << x << endl;
+    }
+    cout << "\n Out when x became " << x;
+\end{lstlisting}
+\end{frame}
+
+\begin{frame} [fragile]
+    \frametitle{The \texttt{continue} Statement}
+    \subsection{The \texttt{continue} Statement} % (fold)
+    \begin{itemize}
+        \item Skips remainder of the loop body
+        \item Proceeds with the next iteration of loop
+    \end{itemize}
+    \lstset{style=mystyle}
+\begin{lstlisting}
+for (x = 1; x <= 10; x++)
+    {
+        if (x == 5)
+            continue;
+        cout << x << " ";
+      }
+    cout << "\n Skipped value 5" <<endl;
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Home Tasks}
+    \subsection{Home Tasks} % (fold)
+    \begin{itemize}
+        \item Write a program using \texttt{for} loop which displays the following shape \\ [0.2 in]
+        * * * * * * * \\
+        * * * * * * \\
+        * * * * * \\
+        * * * * \\
+        * * * \\
+        * * \\
+        * \\
+        \item Write a program using \texttt{for} loop which displays all the even numbers from a minimum number entered by the user to a maximum number entered by the user
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{The \texttt{do} Loop}
+    \section{The \texttt{do} Loop} % (fold)
+    \label{sec:the_do_loop}
+    \subsection{Importance} % (fold)
+    \begin{columns}
+        \column{0.65\textwidth}
+        \begin{itemize}
+            \item In some situations, you want the test expression to be evaluated at the beginning of the loop
+            \item But sometimes you want to guarantee that the loop is executed atleast once, no matter what the initial state of the test expression
+            \item When such is the case, \texttt{do} loop should be used
+        \end{itemize}
+        \column{0.35\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[scale=0.45]{do}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{The \texttt{do} Loop -- Syntax}
+    \subsection{Syntax} % (fold)
+    \begin{columns}
+        \column{0.4\textwidth}
+        \lstset{style=mystyle}
+\begin{lstlisting}
+do
+    {
+       statement;
+       statement;
+       statement;
+       statement;
+    }
+while(test);
+\end{lstlisting}
+        \column{0.57\textwidth}
+            \begin{itemize}
+            \item Keyword \texttt{do} marks the beginning of the loop
+            \item As with other loops, braces delimit the body of the loop
+            \item Finally, a \texttt{while} statement provides the test expression and terminates the loop
+            \end{itemize}
+    \end{columns}
+\end{frame}
+
+\begin{frame} [fragile]
+    \frametitle{The \texttt{do} Loop -- Solved Example}
+    \subsection{Solved Example} % (fold)
+    \lstset{style=mystyle}
+    \begin{lstlisting}
+int main()
+{
+    int dividend, divisor;
+    char ch;
+    do{
+            cout << "Enter dividend: ";
+            cin >> dividend;
+            cout << "Enter divisor: ";
+            cin >> divisor;
+            cout << "Quotient is " << dividend / divisor;
+            cout << ", remainder is " << dividend % divisor;
+            cout << "\nDo another? (y/n): ";
+            cin >> ch;
+        }
+    while(ch != 'n');
+return 0;
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame} [fragile]
+    \frametitle{Exercise}
+    \subsection{Exercise} % (fold)
+    \label{subsec:do_exercise}
+    Write a program using \texttt{do} loop that repeatedly asks for a number and calculates its factorial until the user enters 0, at which point it terminates. \\ [0.2 in]
+    Here goes a sample interaction with the program: \\
+    \lstset{style=mystyle}
+\begin{lstlisting}
+Enter a number: 7
+The factorial of the number is: 5040
+Enter a number: 6
+The factorial of the number is: 720
+Enter a number: 5
+The factorial of the number is: 120
+Enter a number: 0
+The factorial of the number is: 1
+\end{lstlisting}
+\end{frame}
+
+
+\end{document}
