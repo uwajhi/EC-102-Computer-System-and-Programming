@@ -1,0 +1,20 @@
+\frametitle{Exercise}
+    \subsection{Exercise} % (fold)
+    \label{subsec:while_exercise}
+    Write a calculator using \texttt{while} loop which keeps on getting a number and an operator as an input until `q' is entered as an operator. As soon as `q' is entered, the total result of the calculation is displayed and the execution of the program is stopped. \\ [0.2 in]
+    Here goes a sample interaction with the program: \\
+    \lstset{style=mystyle}
+\begin{lstlisting}
+Number: 5
+Operator: +
+Number: 5
+Operator: *
+Number: 3
+Operator: -
+Number: 2
+Operator: /
+Number: 2
+Operator: q
+
+Answer = 14
+\end{lstlisting}
